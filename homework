@@ -1,13 +1,12 @@
 #include <stdio.h>
 #include <math.h>
 int main(void){
-    int a, b, c, d;
-    float x1, x2;
+    float a, b, c, d, x1, x2;
     printf("Введите числа: a, b, c\n");
-    scanf("%d %d %d", &a, &b, &c);
+    scanf("%f %f %f", &a, &b, &c);
     if (a == 0)
     {
-        printf("Уравнение не будет квадратным при a = 0, введите другие числа.");
+        printf("На ноль делить нельзя(-b / (2 * 0). Введите другие числа.");
     }
     else
     {
@@ -16,12 +15,16 @@ int main(void){
         {
             x1 = (-b + sqrt(d)) / (2 * a);
             x2 = (-b - sqrt(d)) / (2 * a);
-            printf("x1 = %f x2 = %f", x1, x2);
+            printf("x1 = %f\nx2 = %f", x1, x2);
         }
         else if (d == 0)
         {
             x1 = -b / (2 * a);
-            printf("x1 = %f", x1);
+            printf("x1 = x2 = %f, корни совпадают.", x1);
+        }
+        else if (d < 0)
+        {
+            printf("Нет корней, т.к. дискриминант < 0");
         }
     }
     return 0;
