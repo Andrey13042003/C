@@ -4,11 +4,7 @@ int main(void){
     float a, b, c, d, x1, x2;
     printf("Введите числа: a, b, c\n");
     scanf("%f %f %f", &a, &b, &c);
-    if (a == 0)
-    {
-        printf("На ноль делить нельзя(-b / (2 * 0). Введите другие числа.");
-    }
-    else
+    if (a > 0)
     {
         d = pow(b, 2) - (4 * a * c);
         if (d > 0)
@@ -25,6 +21,21 @@ int main(void){
         else if (d < 0)
         {
             printf("Нет корней, т.к. дискриминант < 0");
+        }
+    }
+    else
+    {
+        if (b != 0)
+        {
+            x1 = -c / b;
+            printf("x1 = x2 = %f", x1);
+        }
+        else
+        {
+            if (c == 0)
+                printf("x1 и x2 могут быть любыми");
+            else
+                printf("Выражение не имеет смысла");
         }
     }
     return 0;
