@@ -1,0 +1,27 @@
+class PhoneScreen():
+    def __init__(self):
+        self.the_phone_is_charged = False
+    def charging(self):
+        if self.the_phone_is_charged:
+            print("The phone can't be turned on")
+        else:
+            print("The phone can be turned on")
+            self.the_phone_is_charged = True
+class PhoneScreen1():
+    def __init__(self):
+        self.the_phone_is_blocked = False
+    def blocking(self):
+        if self.the_phone_is_blocked:
+            print("The screen is blocked. Enter the password in...")
+        else:
+            print("The phone can be turned on")
+            self.the_phone_is_blocked = True
+class Phone():
+    def __init__(self):
+        self.the_phone_is_broken = False
+    def broke(self):
+        if self.the_phone_is_broken:
+            print("The phone is working")
+        else:
+            print("Fix the phone...")
+            self.the_phone_is_broken = True
