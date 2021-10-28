@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+#define SIZE 10
+
+void qs(int *arr, int first, int last);
+
+int main(void){
+    int arr[SIZE] = {90, 10, 0, 15, 7, 9, -2, 6, 88, 17};
+    printf("arr:\n");
+    for (int i = 0; i < SIZE; i++){
+        printf("%d ", arr[i]);
+    }
+    qs(arr, 0, SIZE - 1);
+    printf("\nsorted arr\n");
+    for (int i = 0; i < SIZE; i++){
+        printf("%d ", arr[i]);
+    }
+}
+void qs(int *arr, int first, int last){
+    if (first < last){
+        int left = first;
+        int right = last;
+        int middle = arr[(left + right) / 2];
+        do{
+            while (arr[left] < middle) // будем хранить индексы элементов
+                left++;//которые больше middle
+            while (arr[right] > middle)//меньше, чем middle
+                right--;
+            if (left <= right){
+                int tmp = arr[left]; 
+                arr[left] = arr[right];//большее число равно меньшему
+                arr[right] = tmp;//меньшее число равно большему
+                left++;// двигаемся вправо
+                right--;// двигаемся влево
+            }
+        } while (left < right);
+        qs(arr, first, right);
+        qs(arr, left, last);
+    }
+    return;
+}
